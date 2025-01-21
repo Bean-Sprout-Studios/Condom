@@ -4,6 +4,8 @@ import { createReadStream, openAsBlob, readFileSync, rmSync } from 'node:fs';
 import { ChildProcess, exec, execSync, spawn } from 'node:child_process';
 import { zip } from 'compressing';
 import { networkInterfaces } from 'node:os';
+import { diffString } from 'json-diff';
+
 export const mainmainmain = (cwd, argv) => {
     const behavior = argv[2];
     const condomjson = JSON.parse(readFileSync(path.join(cwd, 'condom.json')));
@@ -101,11 +103,11 @@ export const mainmainmain = (cwd, argv) => {
             let ires = processRes(i.res);
             if (ires.status == null && res.status == 200 || ires.status == res.status || ires.status == Omitted) {
                 try {
-                    if (deepEqual(ires.body, body, false)) {
+                    if (deepEqual(ires.body, body)) {
                         console.log(`--✅${i.req.url} 测试成功`);
                         succeeded++;
                     } else {
-                        console.log(`--😭${i.req.url} 响应测试失败:`, body);
+                        console.log(`--😭${i.req.url} 响应测试失败:`, diffString(ires.body, body));
                     }
                 } catch (e) {
                     console.log(`--😭${i.req.url} JSON测试失败:`, body);

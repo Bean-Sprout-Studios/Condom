@@ -4,15 +4,17 @@
   "module": "index.js",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/json-diff": "^1.0.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "bin":{
+  "bin": {
     "condom": "condom.js"
   },
   "dependencies": {
-    "compressing": "^1.10.1"
+    "compressing": "^1.10.1",
+    "json-diff": "^1.0.6"
   }
 }
