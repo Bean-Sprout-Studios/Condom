@@ -1,0 +1,13 @@
+{
+    "projectName": "PTP3",
+    "scripts":{
+        "start": "bun run index.js",
+        "package": "bun run package"
+    },
+    "port": 3000,
+    "destinationFolder" : "dist",
+    "tests": {
+        "tests/userTest.json": 1
+    },
+    "remoteAddress": "http://condom.dyas.top:54258"
+}
