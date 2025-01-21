@@ -107,7 +107,8 @@ export const mainmainmain = (cwd, argv) => {
                         console.log(`--✅${i.req.url} 测试成功`);
                         succeeded++;
                     } else {
-                        console.log(`--😭${i.req.url} 响应测试失败:`, diffString(ires.body, body));
+                        console.log(`--😭${i.req.url} 响应测试失败:`,
+                            condomjson.jsondiff ? diffString(ires.body, body) : body);
                     }
                 } catch (e) {
                     console.log(`--😭${i.req.url} JSON测试失败:`, body);
